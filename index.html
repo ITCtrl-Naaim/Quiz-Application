@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <form class="category-form">
+        <label for="categories-choice">Select A Category:</label>
+        <input
+          list="categories"
+          id="categories-choice"
+          name="categories-choice"
+        />
+        <datalist id="categories">
+          <option value="html"></option>
+        </datalist>
+        <button id="select-category-button" type="button">Select</button>
+      </form>
+      <div class="quiz-container hidden">
+        <div class="quiz-header">
+          <div class="category-wrapper">
+            Category: <span class="category"></span>
+          </div>
+          <div class="questions-count-wrapper">
+            Questions Count: <span class="questions-count">0</span>
+          </div>
+        </div>
+        <div class="question-container">
+          <h1 class="question"></h1>
+          <ul class="answers-container"></ul>
+        </div>
+        <button id="submit-answer-button">Submit Answer</button>
+        <div class="quiz-footer">
+          <ul class="questions-bullets"></ul>
+          <div class="timer"></div>
+        </div>
+      </div>
+      <div class="result-container hidden">
+        <div class="wrong-answers">
+          Wrong Answers:<span class="wrong-answers-count"></span>From
+          <span class="total-questions-count"></span>
+        </div>
+        <button id="try-again-button">Try Again</button>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

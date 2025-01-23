@@ -1,0 +1,97 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "answers": {
+      "a": "Home Tool Markup Language",
+      "b": "Hyper Text Markup Language",
+      "c": "Hyperlinks and Text Markup Language"
+    },
+    "true_answer": "Hyper Text Markup Language"
+  },
+  {
+    "question": "Who is making the Web standards?",
+    "answers": {
+      "a": "Mozilla",
+      "b": "Microsoft",
+      "c": "The World Wide Web Consortium",
+      "d": "Google"
+    },
+    "true_answer": "The World Wide Web Consortium"
+  },
+  {
+    "question": "Choose the correct HTML element for the largest heading:",
+    "answers": {
+      "a": "<head>",
+      "b": "<h1>",
+      "c": "<h6>",
+      "d": "<heading>"
+    },
+    "true_answer": "<h1>"
+  },
+  {
+    "question": "What is the correct HTML element for inserting a line break?",
+    "answers": {
+      "a": "<br>",
+      "b": "<break>",
+      "c": "<lb>"
+    },
+    "true_answer": "<br>"
+  },
+  {
+    "question": "What is the correct HTML for adding a background color?",
+    "answers": {
+      "a": "<body bg=\"yellow\">",
+      "b": "<background>yellow</background>",
+      "c": "<body style=\"background-color: yellow;\">"
+    },
+    "true_answer": "<body style=\"background-color: yellow;\">"
+  },
+  {
+    "question": "Choose the correct HTML element to define important text",
+    "answers": {
+      "a": "<i>",
+      "b": "<b>",
+      "c": "<important>",
+      "d": "<strong>"
+    },
+    "true_answer": "<strong>"
+  },
+  {
+    "question": "Choose the correct HTML element to define emphasized text",
+    "answers": {
+      "a": "<em>",
+      "b": "<italic>",
+      "c": "<i>"
+    },
+    "true_answer": "<em>"
+  },
+  {
+    "question": "What is the correct HTML for creating a hyperlink?",
+    "answers": {
+      "a": "<a url=\"http://www.w3schools.com\">W3Schools.com</a>",
+      "b": "<a name=\"http://www.w3schools.com\">W3Schools.com</a>",
+      "c": "<a href=\"http://www.w3schools.com\">W3Schools.com</a>",
+      "d": "<a>http://www.w3schools.com</a>"
+    },
+    "true_answer": "<a href=\"http://www.w3schools.com\">W3Schools.com</a>"
+  },
+  {
+    "question": "Which character is used to indicate an end tag?",
+    "answers": {
+      "a": "^",
+      "b": "/",
+      "c": "*",
+      "d": "<"
+    },
+    "true_answer": "/"
+  },
+  {
+    "question": "How can you open a link in a new tab/browser window?",
+    "answers": {
+      "a": "<a href=\"url\" new>",
+      "b": "<a href=\"url\" target=\"new\">",
+      "c": "<a href=\"url\" target=\"_blank\">"
+    },
+    "true_answer": "<a href=\"url\" target=\"_blank\">"
+  }
+]
