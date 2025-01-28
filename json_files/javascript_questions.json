@@ -1,0 +1,51 @@
+[
+  {
+    "question": "Which of the following is the correct syntax to print a message in the console in JavaScript?",
+    "answers": {
+      "a": "console.print(\"Hello World\");",
+      "b": "print(\"Hello World\");",
+      "c": "console.log(\"Hello World\");"
+    },
+    "true_answer": "console.log(\"Hello World\");"
+  },
+  {
+    "question": "How do you declare a JavaScript variable?",
+    "answers": {
+      "a": "var myVariable;",
+      "b": "let myVariable;",
+      "c": "const myVariable;",
+      "d": "All of the above"
+    },
+    "true_answer": "All of the above"
+  },
+  {
+    "question": "Which method can be used to convert a string to an integer in JavaScript?",
+    "answers": {
+      "a": "parseInt()",
+      "b": "int()",
+      "c": "Number.parse()",
+      "d": "String.toInt()"
+    },
+    "true_answer": "parseInt()"
+  },
+  {
+    "question": "What is the output of <code>typeof null</code> in JavaScript?",
+    "answers": {
+      "a": "\"null\"",
+      "b": "\"object\"",
+      "c": "\"undefined\"",
+      "d": "\"string\""
+    },
+    "true_answer": "\"object\""
+  },
+  {
+    "question": "How do you create a function in JavaScript?",
+    "answers": {
+      "a": "function: myFunction()",
+      "b": "function myFunction()",
+      "c": "def myFunction()",
+      "d": "create myFunction()"
+    },
+    "true_answer": "function myFunction()"
+  }
+]

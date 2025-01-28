@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which property is used to change the background color of an element in CSS?",
+    "answers": {
+      "a": "color",
+      "b": "background-color",
+      "c": "bgcolor",
+      "d": "background"
+    },
+    "true_answer": "background-color"
+  },
+  {
+    "question": "How do you make text bold in CSS?",
+    "answers": {
+      "a": "font-style: bold;",
+      "b": "font-weight: bold;",
+      "c": "text-style: bold;",
+      "d": "font-bold: true;"
+    },
+    "true_answer": "font-weight: bold;"
+  },
+  {
+    "question": "What is the correct syntax for applying a class selector in CSS?",
+    "answers": {
+      "a": "#myClass",
+      "b": ".myClass",
+      "c": "class=myClass",
+      "d": "myClass"
+    },
+    "true_answer": ".myClass"
+  },
+  {
+    "question": "How do you add padding to the top of an element?",
+    "answers": {
+      "a": "padding: top 10px;",
+      "b": "padding: 10px;",
+      "c": "padding-top: 10px;",
+      "d": "top-padding: 10px;"
+    },
+    "true_answer": "padding-top: 10px;"
+  },
+  {
+    "question": "What is the default value of the position property in CSS?",
+    "answers": {
+      "a": "relative",
+      "b": "absolute",
+      "c": "static",
+      "d": "fixed"
+    },
+    "true_answer": "static"
+  }
+]

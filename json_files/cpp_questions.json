@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which of the following is the correct syntax to include a library in C++?",
+    "answers": {
+      "a": "#include<iostream>",
+      "b": "#import<iostream>",
+      "c": "#using<iostream>",
+      "d": "import iostream;"
+    },
+    "true_answer": "#include<iostream>"
+  },
+  {
+    "question": "What is the correct way to declare a main function in C++?",
+    "answers": {
+      "a": "int main()",
+      "b": "void main()",
+      "c": "main()",
+      "d": "public main()"
+    },
+    "true_answer": "int main()"
+  },
+  {
+    "question": "Which operator is used for output in C++?",
+    "answers": {
+      "a": "<<",
+      "b": ">>",
+      "c": "==",
+      "d": "!=="
+    },
+    "true_answer": "<<"
+  },
+  {
+    "question": "How do you write a single-line comment in C++?",
+    "answers": {
+      "a": "#",
+      "b": "//",
+      "c": "/*",
+      "d": "::"
+    },
+    "true_answer": "//"
+  },
+  {
+    "question": "What is the correct syntax to create a variable in C++?",
+    "answers": {
+      "a": "int x = 10;",
+      "b": "int x =< 10;",
+      "c": "int x => 10;",
+      "d": "var x = 10;"
+    },
+    "true_answer": "int x = 10;"
+  }
+]

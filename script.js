@@ -13,8 +13,11 @@ const submitAnswerButton = document.getElementById("submit-answer-button");
 const questionsBullets = document.querySelector(".questions-bullets");
 const timerEl = document.querySelector(".timer");
 let questionsArray = [];
+let questionsLeft;
 let questionIndex = 0;
 let wrongAnswersCount = 0;
+let timerInterval;
+let timesUp = false;
 
 window.onload = () => {
   categoryInput.focus();
@@ -42,18 +45,19 @@ async function setCategory() {
     return;
   }
   try {
-    questionsArray = await fetchQuestions(`./${category}_questions.json`);
+    questionsArray = await fetchQuestions(`./json_files/${category}_questions.json`);
   } catch (error) {
     alert("Failed to load questions. Please try again later.");
     return;
   }
   categoryEl.textContent = category.toUpperCase();
-  questionsCountEl.textContent = questionsArray.length - questionIndex;
+  questionsLeft = questionsArray.length - questionIndex;
+  questionsCountEl.textContent = questionsLeft;
   displayQuestionsBullets();
   displayQuestion(questionsArray[questionIndex]);
   categoryForm.classList.add("hidden");
   quizContainer.classList.remove("hidden");
-  setTimer();
+  setTimer(30);
 }
 
 function displayQuestion({ question, answers }) {
@@ -86,25 +90,29 @@ function displayQuestionsBullets() {
   });
 }
 
-function setTimer() {
-  let remainingTime = 3;
-
-  const timerInterval = setInterval(() => {
-    remainingTime--;
-    timerEl.textContent = remainingTime;
-
-    if (remainingTime <= 0) {
-      clearInterval(timerInterval);
-      console.log("Time is up");
-    }
-  }, 1000);
+function setTimer(duration) {
+  if (questionIndex < questionsArray.length) {
+    let minutes, seconds;
+    timerInterval = setInterval(() => {
+      minutes = parseInt(duration / 60);
+      seconds = parseInt(duration % 60);
+      timerEl.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${
+        seconds < 10 ? "0" + seconds : seconds
+      }`;
+      if (--duration < 0) {
+        clearInterval(timerInterval);
+        timesUp = true;
+        submitAnswerButton.click();
+      }
+    }, 1000);
+  }
 }
 
 function answerQuestion() {
   const isAnAnswerChecked = [...answersContainer.children].some((answer) =>
     answer.classList.contains("checked")
   );
-  if (parseInt(questionsCountEl.textContent) > 1 && isAnAnswerChecked) {
+  if (questionsLeft > 1 && isAnAnswerChecked) {
     const usersAnswer = [...answersContainer.children].filter((answer) =>
       answer.classList.contains("checked")
     );
@@ -113,16 +121,29 @@ function answerQuestion() {
       questionsArray[questionIndex].true_answer
         ? 0
         : 1;
-    reset();
+    nextQuestion();
+  } else if (!isAnAnswerChecked && !timesUp) {
+    alert("Please select an answer!");
+  } else if (!isAnAnswerChecked && timesUp && questionsLeft > 0) {
+    wrongAnswersCount += 1;
+    nextQuestion();
+  } else if (questionsLeft === 1) {
+    showResults();
+  }
+}
+
+function nextQuestion() {
+  if (questionsLeft > 1) {
+    answersContainer.innerHTML = "";
+    clearInterval(timerInterval);
     questionsBullets.children[questionIndex].classList.remove("active");
     questionsBullets.children[questionIndex].classList.add("done");
     questionIndex++;
     displayQuestion(questionsArray[questionIndex]);
-    questionsCountEl.textContent = questionsArray.length - questionIndex;
-    setTimer();
-  } else if (!isAnAnswerChecked) {
-    alert("Please select an answer!");
-  } else if (parseInt(questionsCountEl.textContent) === 1) {
+    questionsLeft = questionsArray.length - questionIndex;
+    questionsCountEl.textContent = questionsLeft;
+    setTimer(30);
+  } else {
     showResults();
   }
 }
@@ -130,13 +151,12 @@ function answerQuestion() {
 function showResults() {
   quizContainer.classList.add("hidden");
   document.querySelector(".result-container").classList.remove("hidden");
-  document.querySelector(".wrong-answers-count").textContent = wrongAnswersCount;
-  document.querySelector(".total-questions-count").textContent = questionsArray.length;
-  document.getElementById("try-again-button").onclick = () => window.location.reload();
-}
-
-function reset() {
-  answersContainer.innerHTML = "";
+  document.querySelector(".wrong-answers-count").textContent =
+    wrongAnswersCount;
+  document.querySelector(".total-questions-count").textContent =
+    questionsArray.length;
+  document.getElementById("try-again-button").onclick = () =>
+    window.location.reload();
 }
 
 selectCategoryButton.addEventListener("click", () => {
@@ -149,7 +169,9 @@ categoryInput.addEventListener("keydown", (e) => {
   }
 });
 
-submitAnswerButton.addEventListener("click", answerQuestion);
+submitAnswerButton.addEventListener("click", () => {
+  answerQuestion();
+});
 
 categoryForm.addEventListener("submit", (e) => {
   e.preventDefault();
